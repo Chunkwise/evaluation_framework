@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 import os
 import json
 import random
@@ -12,7 +12,7 @@ from openai import OpenAI
 from importlib import resources
 
 class SyntheticEvaluation(BaseEvaluation):
-    def __init__(self, corpora_paths: List[str], queries_csv_path: str, chroma_db_path:str = None, openai_api_key=None):
+    def __init__(self, corpora_paths: List[str], queries_csv_path: str, chroma_db_path: Optional[str] = None, openai_api_key=None):
         super().__init__(questions_csv_path=queries_csv_path, chroma_db_path=chroma_db_path)
         self.corpora_paths = corpora_paths
         self.questions_csv_path = queries_csv_path
