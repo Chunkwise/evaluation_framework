@@ -19,7 +19,7 @@ class SyntheticEvaluation(BaseEvaluation):
         queries_csv_path: str,
         chroma_db_path: Optional[str] = None,
         openai_api_key=None,
-        corpus_id_override: Optional[dict] = None,
+        corpus_id_override: Optional[dict] = None, # New param that maps file path to canonical ID
     ):
         super().__init__(
             questions_csv_path=queries_csv_path, chroma_db_path=chroma_db_path
@@ -27,7 +27,7 @@ class SyntheticEvaluation(BaseEvaluation):
         self.corpora_paths = corpora_paths
         self.questions_csv_path = queries_csv_path
         self.client = OpenAI(api_key=openai_api_key)
-        self.corpus_id_override = corpus_id_override or {}
+        self.corpus_id_override = corpus_id_override or {} # Store the mapping
 
         self.synth_questions_df = None
 
@@ -248,7 +248,7 @@ class SyntheticEvaluation(BaseEvaluation):
                     new_question = {
                         "question": question,
                         "references": json.dumps(references),
-                        "corpus_id": stored_corpus_id,
+                        "corpus_id": stored_corpus_id, # Use the passed canonical corpus ID instead of file path
                     }
 
                     new_df = pd.DataFrame([new_question])
