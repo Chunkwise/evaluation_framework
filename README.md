@@ -1,4 +1,4 @@
-# Chunking Evaluation (Chunkwise Fork)
+# Chunking evaluation (Chunkwise fork)
 
 This repository is a fork of the **Chroma chunking evaluation framework**, adapted for use within **Chunkwise**.
 
