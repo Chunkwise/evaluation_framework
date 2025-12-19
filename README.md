@@ -8,7 +8,7 @@ This fork includes refactors and fixes to better support Chunkwise evaluation wo
 
 - Support for different chunker interfaces
 - Improvements to evaluation handling (typing, corpus ID handling)
-- Removal of unused code and correctness fixes
+- Fix for collection initialization, and removal of unused code
 
 For full documentation and background, refer to the original project:
 
